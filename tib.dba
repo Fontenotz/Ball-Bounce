@@ -1,0 +1,24 @@
+load image "wall.bmp",1
+sprite 1,20,5,1
+load image "ball.bmp",2
+
+
+ballx=275+rnd(50)
+bally=275+rnd(50)
+thing1=4
+thing2=4
+
+repeat
+if ballx<=0 then thing1=5
+if bally<=0 then thing2=5
+if bally>=480 then thing2=-5
+if ballx>=640 then thing1=-5
+
+sprite 2,ballx,bally,2
+rem circle ballx,bally,5
+ballx=ballx+thing1
+bally=bally+thing2
+
+if sprite collision(2,1)=1 then thing1=5
+cls
+until spacekey()=1
